@@ -65,23 +65,32 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Verstuur</button>
             </form>
+
+            <form action="{{ url('/register/reset') }}" method="POST" style="margin-top: 10px;">
+                @csrf
+                <button type="submit" class="btn btn-secondary w-100">Begin opnieuw</button>
+            </form>
         @endif
     </div>
+
+
 
     <footer>
         &copy; 2024 Boardify. Alle rechten voorbehouden.
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if ({{ $step == 'verify' ? 'true' : 'false' }}) {
-                document.getElementById('register-form').style.display = 'none';
-                document.getElementById('verify-form').style.display = 'block';
-            } else {
-                document.getElementById('register-form').style.display = 'block';
-                document.getElementById('verify-form').style.display = 'none';
+        // Modal functionaliteit
+        const modal = document.getElementById("modal");
+        const openModal = () => modal.style.display = "block";
+        const closeModal = () => modal.style.display = "none";
+
+        // Controleer of de modal zichtbaar moet zijn
+        window.onload = () => {
+            if (window.location.href.indexOf("register") !== -1) {
+                openModal();
             }
-        });
+        };
     </script>
 </body>
 </html>

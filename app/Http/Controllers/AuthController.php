@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+    //valideer ingevoerde email en wachtwoord
     public function authenticate(Request $request)
     {
         $request->validate([
@@ -19,6 +20,7 @@ class AuthController extends Controller
         $gebruiker = DB::table('gebruikers')->where('Email', $request->email)->first();
 
         if ($gebruiker && Hash::check($request->password, $gebruiker->Wachtwoord)) {
+            //zet gebruiker in de sessie
             Session::put('gebruiker', $gebruiker);
 
             return redirect('/boards');  
@@ -26,7 +28,7 @@ class AuthController extends Controller
 
         return back()->with('error', 'Ongeldige inloggegevens');
     }
-
+    //uitloggen user 
     public function logout()
     {
         Session::forget('gebruiker');

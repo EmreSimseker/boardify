@@ -14,12 +14,156 @@ body {
     box-sizing: inherit;
 }
 
-.trello-board {
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.board-btn {
+    background: linear-gradient(to bottom right, #007b76, #004953);
+    padding: 6px 12px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    margin: 5px 0;
+    display: inline-block;
+    width: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.board-btn:hover {
+    background-color: linear-gradient(to bottom right, #007b76, #004953);
+    transform: scale(1.05);
+}
+
+.board-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 172, 68, 0.4);
+}
+
+.board .board-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.board .board-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.add-list-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-board-btn,
+.back-to-boards-btn {
+    padding: 10px 20px;
+    background: linear-gradient(to bottom right, #007b76, #004953); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 20px;
+    text-align: center;
+    transition: transform 0.3s ease; 
+    margin-left: 20px;
+}
+
+label[for="Titel"],
+input[type="text"] {
+    margin-left: 20px; 
+}
+
+
+.create-board-btn:hover,
+.back-to-boards-btn:hover {
+    background: linear-gradient(to bottom right, #007b76, #004953); 
+    transform: scale(1.1); 
+}
+
+.create-board-btn:focus,
+.back-to-boards-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 172, 68, 0.4);
+}
+
+
+
+.add-board-btn {
+    background: linear-gradient(to bottom right, #007b76, #004953);
+    padding: 12px 24px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#boards-container h1 {
+    margin-left: 20px;
+}
+
+#boards-list p {
+    margin-left: 20px;
+}
+
+.add-board-btn:hover {
+    background-color: linear-gradient(to bottom right, #007b76, #004953);
+    transform: scale(1.05);
+}
+
+.add-board-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+.add-list-btn-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+.add-list-btn {
+    background: linear-gradient(to bottom right, #007b76, #004953);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-list-btn:hover {
+    background: linear-gradient(to bottom right, #014c49, #013036);
+}
+
+.board-lists {
     display: flex;
     gap: 15px;
-    padding: 20px;
-    overflow-x: auto;
-    margin-bottom: 60px; 
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .list {
@@ -31,13 +175,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    min-width: 250px;
 }
 
 .list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .list-header h3 {
@@ -61,7 +207,7 @@ body {
 }
 
 .task {
-    background: #0079bf;
+    background: #0b9792;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -72,6 +218,67 @@ body {
     text-align: left;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.board-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.back-to-boards-btn {
+    background: linear-gradient(to bottom right, #007b76, #004953);
+    padding: 6px 12px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.back-to-boards-btn:hover {
+    background-color: linear-gradient(to bottom right, #007b76, #004953);
+    transform: scale(1.05);
+}
+
+.back-to-boards-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 172, 68, 0.4);
+}
+
+
+.back-to-boards-btn-container {
+    margin-left: 20px;
+}
+
+
+.delete-task-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #ffffff;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: color 0.3s;
+}
+
+.delete-task-btn:hover {
+    color: #e74c3c;
 }
 
 .task:hover {
@@ -80,7 +287,7 @@ body {
 }
 
 .add-task-btn {
-    background: #5aac44; 
+    background: linear-gradient(to bottom right, #007b76, #004953);
     color: white;
     border: none;
     padding: 8px 12px;
@@ -92,83 +299,7 @@ body {
 }
 
 .add-task-btn:hover {
-    background: #519839;
-}
-
-.add-list-btn {
-    background: #5aac44; 
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 20px auto; 
-}
-
-.add-list-btn:hover {
-    background: #519839;
-}
-
-.task-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.task-modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 400px;
-    max-width: 90%;
-}
-
-.close-modal {
-    float: right;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #333;
-}
-
-.close-modal:hover {
-    color: #e74c3c;
-}
-
-#taskDescription {
-    width: 100%;
-    height: 100px;
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-}
-
-.save-description-btn {
-    margin-top: 10px;
-    background: #0079bf;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.save-description-btn:hover {
-    background: #005f8a;
+    background: linear-gradient(to bottom right, #014845, #012f35);;
 }
 
 .footer {
@@ -177,9 +308,176 @@ body {
     text-align: center;
     padding: 10px;
     font-size: 0.8rem;
-    position: fixed; 
+    position: fixed;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+}
+
+.task-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.task-modal-content {
+    position: relative;
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#taskTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#taskDescription {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.save-description-btn {
+    background: linear-gradient(to bottom right, #007b76, #004953);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-description-btn:hover {
+    background-color: linear-gradient(to bottom right, #007b76, #004953);
+}
+
+.task-modal-content .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.task-modal-content .close-modal:hover {
+    color: #333;
+}
+
+@media (max-width: 1024px) {
+    .board {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .list {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .board {
+        flex-direction: column;
+    }
+
+    .list {
+        width: 100%;
+    }
+
+    .task-modal-content {
+        width: 90%;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+    
+    .task-modal-content .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        color: #aaa;
+        cursor: pointer;
+    }
+
+    .save-description-btn {
+        background-color: linear-gradient(to bottom right, #007b76, #004953);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .save-description-btn:hover {
+        background-color: linear-gradient(to bottom right, #007b76, #004953);
+    }
+
+    .board-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .board-btn {
+        background-color: #28a745; 
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .delete-board-btn {
+        background-color: #dc3545; 
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 50%; 
+        font-size: 20px; 
+        width: 30px; 
+        height: 30px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease, transform 0.2s ease; 
+    }
+    
+    .delete-board-btn:hover {
+        background-color: #c82333; 
+        transform: scale(1.1); 
+    }
+    
+    .delete-board-btn:focus {
+        outline: none; 
+    }
+    
+    
 }

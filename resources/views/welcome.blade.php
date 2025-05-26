@@ -13,44 +13,59 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Beheer je taken visueel met Boardify</h1>
-            <p>Creëer borden, organiseer lijsten en taken, en werk samen met je team – allemaal op één plek.</p>
+            <p>Beheer borden, plan agenda's, en organiseer je dag moeiteloos – alles in één overzichtelijke tool.</p>
             <div class="cta-buttons">
                 <a href="/register" class="cta-primary">Aan de slag</a>
                 <a href="/login" class="cta-secondary">Inloggen</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="{{ asset('images/hero-image.png') }}" alt="Visualisatie van Boardify">
+            <div class="clipboard">
+                <div class="task">
+                    <div class="checkbox checked"></div>
+                    <span>Bedenk 💡</span>
+                </div>
+                <div class="task">
+                    <div class="checkbox checked"></div>
+                    <span>Ontwikkel ⚙️</span>
+                </div>
+                <div class="task">
+                    <div class="checkbox"></div>
+                    <span>Launch! 🚀</span>
+                </div>
+            </div>
+            <div class="shadow"></div>
         </div>
     </section>
-
+    
     <section class="features">
         <h2>Waarom kiezen voor Boardify?</h2>
         <div class="feature-list">
             <div class="feature">
-                <img src="{{ asset('images/board-feature.png') }}" alt="Borden aanmaken">
+                <div class="emoji">📋</div>
                 <h3>Borden aanmaken</h3>
-                <p>Creëer  borden om jouw projecten perfect te organiseren.</p>
+                <p>Creëer borden om jouw projecten perfect te organiseren.</p>
             </div>
             <div class="feature">
-                <img src="{{ asset('images/task-feature.png') }}" alt="Taken beheren">
-                <h3>Taken beheren</h3>
+                <div class="emoji">📆</div>
+                <h3>Agenda's plannen</h3>
                 <p>Blijf op schema met duidelijke taken, deadlines en prioriteiten.</p>
             </div>
             <div class="feature">
-                <img src="{{ asset('images/team-feature.png') }}" alt="Samenwerken">
-                <h3>Samenwerken</h3>
-                <p>Werk samen met je team en deel je voortgang in realtime.</p>
+                <div class="emoji">📝</div>
+                <h3>dag plannen</h3>
+                <p>Plan je dag efficiënt en houd je taken overzichtelijk.</p>
             </div>
         </div>
     </section>
 
     <section class="cta">
         <h2>Ben je klaar om je taken te organiseren?</h2>
-        <p>Word vandaag nog lid en begin met het stroomlijnen van je workflow.</p>
+        <p>Sluit je aan bij ons platform om je werk overzichtelijker te organiseren</p>
         <a href="/register" class="cta-primary">Start Nu</a>
     </section>
 
     @include('parts.footer')
+    <script src="{{ asset('js/welcome.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.nav-wrapper {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background: none;
+}
+
+.week-planner-wrapper {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.week-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.week-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.week-nav-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.week-nav-button:hover {
+  background-color: #218838;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  gap: 1px;
+  margin-bottom: 1rem;
+  background-color: #ccc;
+}
+
+.time-slot {
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #e9ecef;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  font-weight: bold;
+}
+
+.week-day {
+  text-align: center;
+  font-weight: 600;
+  background-color: #e9ecef;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  color: black;
+}
+
+.week-day.weekend {
+  color: grey;
+}
+
+.task-tile {
+  height: 50px;
+  background-color: #f1f3f5;
+  border: 1px solid #ced4da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  font-size: 0.8rem;
+}

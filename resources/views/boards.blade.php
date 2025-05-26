@@ -5,36 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boardify</title>
     <link rel="stylesheet" href="{{ asset('css/boards.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     @include('parts.nav')
 
-    <section class="board">
-        <div class="list" id="todo">
-            <div class="list-header">
-                <h3>To Do</h3>
-                <button class="delete-list-btn" onclick="deleteList('todo')">×</button>
-            </div>
-            <div class="task" draggable="true" onclick="openTaskModal(this)">Taak 1</div>
-            <button class="add-task-btn" onclick="addTask('todo')">+ Voeg taak toe</button>
-        </div>
+    <section id="boards-container">
+        <h1>Mijn Borden</h1>
 
-        <button class="add-list-btn" onclick="addList()">+ Voeg lijst toe</button>
+        <div id="boards-list"></div> 
+
+        <form action="{{ route('boards.create') }}" method="get">
+            <button type="submit" class="add-board-btn">+ Nieuw Board</button>
+        </form>
     </section>
 
-    <div class="task-modal" id="taskModal">
-        <div class="task-modal-content">
-            <span class="close-modal" onclick="closeTaskModal()">×</span>
-            <h3 id="taskTitle">Taak Titel</h3>
-            <textarea id="taskDescription" placeholder="Beschrijving toevoegen..."></textarea>
-            <button class="save-description-btn" onclick="saveTaskDescription()">Opslaan</button>
-        </div>
-    </div>
+    <script id="boards-data" type="application/json">
+        @json($boards)
+    </script>
+
+    <script>
+        const boardsData = JSON.parse(document.getElementById('boards-data').textContent);
+        const boardsList = document.getElementById('boards-list');
+    
+        if (boardsData.length === 0) {
+            boardsList.innerHTML = '<p>Je hebt nog geen board. Maak een board aan om te beginnen!</p>';
+        } else {
+            boardsData.forEach(board => {
+                const boardItem = document.createElement('div');
+                boardItem.classList.add('board-item');
+    
+                boardItem.innerHTML = `
+                <form action="/boards/${board.Slug}" method="get" style="display:inline;">
+                    <button type="submit" class="board-btn">${board.Titel}</button>
+                </form>
+                <form action="/boards/${board.Slug}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="delete-board-btn">x</button>
+                </form>
+
+                `;
+    
+                boardsList.appendChild(boardItem);
+            });
+        }
+    </script>
 
     @include('parts.footer')
-
-    <script src="{{ asset('js/boards.js') }}"></script>
 </body>
 </html>

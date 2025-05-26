@@ -204,11 +204,13 @@ footer {
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-primary:hover {
     background-color: #005f5a;
+    transform: scale(1.05);
 }
 
 .cta-secondary {
@@ -218,11 +220,13 @@ footer {
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-secondary:hover {
     background-color: #f0f0f0;
+    transform: scale(1.05);
 }
 
 .hero-image img {
@@ -301,6 +305,12 @@ footer {
     font-size: 0.9rem;
 }
 
+.feature .emoji {
+    font-size: 3.5rem; 
+    text-align: center;
+    margin-bottom: 10px; 
+}
+
 .cta {
     text-align: center;
     padding: 50px 5%;
@@ -332,3 +342,69 @@ footer {
 .cta-primary:hover {
     background-color: #f0f0f0;
 }
+
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.clipboard {
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    margin-left: -500px; 
+}
+
+.clipboard::before {
+    content: '';
+    width: 70px;
+    height: 30px;
+    background: #333;
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.checkbox.checked::before {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.9rem;
+    color: #007b76;
+}
+
+.task span {
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+
