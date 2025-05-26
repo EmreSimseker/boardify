@@ -31,7 +31,7 @@ Boardify is een webapplicatie geïnspireerd op Trello, waarmee je eenvoudig je t
 ### dashboard
 ![dashboard](screenshots/Boardify_dashboard.png)
 
-### dashboard
+### board
 ![Board](screenshots/Boardify_board.png)
 
 ### agenda
