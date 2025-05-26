@@ -13,4 +13,5 @@ Boardify is een webapplicatie geïnspireerd op Trello, waarmee je eenvoudig je t
 
 ## Screenshots
 
- Zie de map screenshots voorbeeldweergaven van de applicatie.
+ ### Homepagina
+![Home](screenshots/home_boven.png)
